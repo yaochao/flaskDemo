@@ -40,7 +40,7 @@ def go():
         rs = cursor2.fetchall()
         if rs:
             continue
-        print '1', result
+        print '1', type(result)
         result = result.strip()
         result = result.split(',')[0] if result.split(',') else result
         # if '，' in result:
