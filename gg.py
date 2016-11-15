@@ -40,20 +40,13 @@ def go():
         rs = cursor2.fetchall()
         if rs:
             continue
-        result = result if type(result) == 'unicode' else result.decode('utf-8')
-        print '1', type(result)
         result = result.strip()
-
-
-        # result = result.split(',')[0] if result.split(',') else result
-
-
-        # if '，' in result:
-        #     result = result.split('，')[0] if result.split('，') else result
-        # if ' ' in result:
-        #     result = result.split()[0] if result.split() else result
-        print '2', type(result)
-        print result.decode('utf-8')
+        result = result.split(',')[0] if result.split(',') else result
+        if '，' in result:
+            result = result.split('，')[0] if result.split('，') else result
+        if ' ' in result:
+            result = result.split()[0] if result.split() else result
+        print result
         try:
             jsonstr = It199Spider.crawl_with_keyword(result)
             if jsonstr == 'ggsimida':
