@@ -8,7 +8,7 @@ import requests
 from lxml import etree
 
 
-proxies = {'http': 'http://332011270:omrdwhvf@119.29.95.237:16816/'}
+proxies = {'http': 'http://332011270:omrdwhvf@123.56.144.1:16816/'}
 
 class WanfangSpider(object):
     @classmethod
