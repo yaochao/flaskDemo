@@ -83,7 +83,7 @@ class It199Spider(object):
     def crawl_with_keyword(cls, keyword):
         if keyword.strip() == '':
             return None
-        url = 'http://s.199it.com/cse/search?s=913566115233094367&entry=1&q=' + urllib.quote(keyword)
+        url = 'http://s.199it.com/cse/search?s=913566115233094367&entry=1&q=' + urllib.quote(keyword.encode('utf-8'))
         print url
         response = requests.get(url=url, proxies=proxies, headers=cls.get_headers())
         if response.status_code == 200:

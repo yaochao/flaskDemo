@@ -40,6 +40,7 @@ def go():
         rs = cursor2.fetchall()
         if rs:
             continue
+        result = result.decode('utf-8')
         print '1', type(result)
         result = result.strip()
         result = result.split(',')[0] if result.split(',') else result
