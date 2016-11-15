@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Created by yaochao on 2016/10/18
+import base64
 import random
 
 import requests
@@ -121,3 +122,33 @@ class It199Spider(object):
         a_tags = tree.xpath('//div[@class="tagcloud"]/a')
         for a_tag in a_tags:
             tag = a_tag.xpath('text')
+
+
+    @classmethod
+    def get_content(cls, url):
+        url = base64.decodestring(url)
+        print url
+        response = requests.get(url)
+        if response.status_code == 200:
+            content = response.content
+            tree = etree.HTML(content)
+            # 标题
+            title = tree.xpath('//h1[@class="entry-title"]/text()')
+            post_time = tree.xpath('//*[@class="search-post-info-table"]/tr/td[2]/text()')
+            entry_content = tree.xpath('//div[@class="entry-content"]')
+
+            entry_content = etree.tostring(entry_content[0], pretty_print=True, )
+            print entry_content
+            obj =  {
+                'msg': 'ok',
+                'data': {'title': title, 'post_time': post_time, 'content': entry_content}
+            }
+        else:
+            obj = {
+                'msg': 'error',
+                'data': {}
+            }
+        return obj
+
+if __name__ == '__main__':
+    It199Spider.get_content(url='http://www.199it.com/archives/532400.html')

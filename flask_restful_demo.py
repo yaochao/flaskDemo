@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Created by yaochao on 2016/8/15
+import json
 
 from flask import Flask, request, abort
 from flask_restful import Resource, Api
@@ -45,10 +46,19 @@ class It199(Resource):
         else:
             return {'msg': 'error', 'data': {}}
 
+class Content(Resource):
+    def get(self, url):
+        result = It199Spider.get_content(url)
+        if result:
+            return result
+        else:
+            return {'msg': 'error', 'data': {}}
+
 
 api.add_resource(It199, '/199it/<string:keyword>')
 api.add_resource(Wanfang, '/wanfangdata/<string:keyword>')
+api.add_resource(Content, '/getcontent/<string:url>')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
