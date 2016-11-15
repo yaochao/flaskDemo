@@ -40,14 +40,14 @@ def go():
         rs = cursor2.fetchall()
         if rs:
             continue
-
+        print '1', result
         result = result.strip()
         result = result.split(',')[0] if result.split(',') else result
-        if '，' in result:
-            result = result.split('，')[0] if result.split('，') else result
-        if ' ' in result:
-            result = result.split()[0] if result.split() else result
-        print result
+        # if '，' in result:
+        #     result = result.split('，')[0] if result.split('，') else result
+        # if ' ' in result:
+        #     result = result.split()[0] if result.split() else result
+        print '2', result
         try:
             jsonstr = It199Spider.crawl_with_keyword(result)
             if jsonstr == 'ggsimida':
@@ -76,10 +76,10 @@ def go():
 def main():
     count = 0
     while True:
-        print('199it next time crawl after--- %ss' % str(3600 - count))
-        time.sleep(60)
-        count += 60
-        if count == 3600:
+        print('199it next time crawl after--- %ss' % str(3 - count))
+        time.sleep(1)
+        count += 1
+        if count == 3:
             go()
             return
 
