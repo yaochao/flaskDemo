@@ -19,7 +19,7 @@ def go():
     cursor2 = connection2.cursor()
 
     connection = MySQLdb.connect(host='192.168.39.25', port=3306, user='root', passwd='7Rgag9o868YigP2E',
-                                 db='dataparkcn')
+                                 db='dataparkcn', charset='utf8')
     cursor = connection.cursor()
     cursor.execute('select r_tag, r_id from new_reports')
     results = cursor.fetchall()
