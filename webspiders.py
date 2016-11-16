@@ -141,7 +141,7 @@ class It199Spider(object):
             print entry_content
             obj =  {
                 'msg': 'ok',
-                'data': {'title': title, 'post_time': post_time, 'content': entry_content}
+                'data': {'title': title[0] if title else None, 'post_time': post_time[0] if post_time else None, 'content': entry_content}
             }
         else:
             obj = {
