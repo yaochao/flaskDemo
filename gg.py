@@ -32,8 +32,8 @@ def go():
         result = result[0]
         if not result:
             continue
-        if relatedOutReports:
-            continue
+        # if relatedOutReports:
+        #     continue
         cursor2.execute('CREATE TABLE IF NOT EXISTS BLACKNAMELIST_199IT (id INT)')
         connection2.commit()
         cursor2.execute('SELECT * FROM BLACKNAMELIST_199IT WHERE id=%s' % r_id)

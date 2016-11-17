@@ -31,8 +31,8 @@ def go():
         result = result[0]
         if not result:
             continue
-        if expertInfos:
-            continue
+        # if expertInfos:
+        #     continue
         cursor2.execute('CREATE TABLE IF NOT EXISTS BLACKNAMELIST_WANFANG (id INT)')
         connection2.commit()
         cursor2.execute('SELECT * FROM BLACKNAMELIST_WANFANG WHERE id=%s' % r_id)
