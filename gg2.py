@@ -75,10 +75,10 @@ def go():
 def main():
     count = 0
     while True:
-        print('wanfang next time crawl after--- %ss' % str(3600 - count))
-        time.sleep(60)
-        count += 60
-        if count == 3600:
+        print('wanfang next time crawl after--- %ss' % str(3 - count))
+        time.sleep(1)
+        count += 1
+        if count == 3:
             go()
             return
 
