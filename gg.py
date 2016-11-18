@@ -32,8 +32,8 @@ def go():
         result = result[0]
         if not result:
             continue
-        # if relatedOutReports:
-        #     continue
+        if relatedOutReports:
+            continue
         cursor2.execute('CREATE TABLE IF NOT EXISTS BLACKNAMELIST_199IT (id INT)')
         connection2.commit()
         cursor2.execute('SELECT * FROM BLACKNAMELIST_199IT WHERE id=%s' % r_id)
@@ -75,10 +75,10 @@ def go():
 def main():
     count = 0
     while True:
-        print('199it next time crawl after--- %ss' % str(3 - count))
-        time.sleep(1)
-        count += 1
-        if count == 3:
+        print('199it next time crawl after--- %ss' % str(3600 - count))
+        time.sleep(10)
+        count += 10
+        if count == 3600:
             go()
             return
 
