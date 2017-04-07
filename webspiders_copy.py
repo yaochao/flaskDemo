@@ -15,7 +15,8 @@ class WanfangSpider(object):
     def crawl_with_keyword(cls, keyword):
         url = 'http://s.wanfangdata.com.cn/Paper.aspx?q=' + urllib.quote(keyword)
         print url
-        response = requests.get(url=url, proxies=proxies, headers=cls.get_headers())
+        # response = requests.get(url=url, proxies=proxies, headers=cls.get_headers())
+        response = requests.get(url=url, headers=cls.get_headers())
         if response.status_code == 200:
             return cls.get_info(response.text)
         else:
@@ -85,7 +86,8 @@ class It199Spider(object):
             return None
         url = 'http://s.199it.com/cse/search?s=913566115233094367&entry=1&q=' + urllib.quote(keyword)
         print url
-        response = requests.get(url=url, proxies=proxies, headers=cls.get_headers())
+        # response = requests.get(url=url, proxies=proxies, headers=cls.get_headers())
+        response = requests.get(url=url, headers=cls.get_headers())
         if response.status_code == 200:
             return cls.get_info(response.content, keyword)
         else:
