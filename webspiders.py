@@ -126,7 +126,7 @@ class It199Spider(object):
 
     @classmethod
     def get_content(cls, url):
-        url = base64.decodestring(url)
+        url = base64.urlsafe_b64decode(url)
         print url
         response = requests.get(url)
         if response.status_code == 200:
