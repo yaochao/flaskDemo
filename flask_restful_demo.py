@@ -48,7 +48,12 @@ class It199(Resource):
 
 class Content(Resource):
     def get(self, url):
-        result = It199Spider.get_content(url)
+        try:
+            result = It199Spider.get_content(url)
+        except Exception as e:
+            result = None
+            print e
+
         if result:
             return result
         else:
