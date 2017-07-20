@@ -9,6 +9,9 @@ import time
 import MySQLdb
 
 from webspiders_copy import It199Spider
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 # connection = MySQLdb.connect(host='192.168.31.7', port=3306, user='root', passwd='dp12345678', db='dataparkcn')

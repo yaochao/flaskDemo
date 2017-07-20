@@ -4,6 +4,9 @@
 from flask import Flask, request
 from flask_restful import Api, Resource, request
 import requests
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 app = Flask(__name__)
 api = Api(app)

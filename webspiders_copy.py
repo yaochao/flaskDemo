@@ -6,6 +6,9 @@ import urllib
 
 import requests
 from lxml import etree
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 proxies = {'http': 'http://332011270:omrdwhvf@123.56.144.1:16816/'}
