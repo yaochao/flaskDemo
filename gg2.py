@@ -46,7 +46,7 @@ def go():
             result = result.split(u'，')[0] if result.split(u'，') else result
         if u' ' in result:
             result = result.split()[0] if result.split() else result
-        print result
+        # print result
         try:
             jsonstr = WanfangSpider.crawl_with_keyword(result.encode('utf-8'))
             if jsonstr == 'ggsimida':
