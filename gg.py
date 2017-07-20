@@ -69,19 +69,7 @@ def go():
     cursor2.close()
     connection2.close()
     print('crawl complete!')
-    main()
-
-
-def main():
-    count = 0
-    while True:
-        print('199it next time crawl after--- %ss' % str(3600 - count))
-        time.sleep(10)
-        count += 10
-        if count == 3600:
-            go()
-            return
 
 
 if __name__ == '__main__':
-    main()
+    go()
